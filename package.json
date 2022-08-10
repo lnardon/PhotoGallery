@@ -19,6 +19,8 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
+    "@rollup/plugin-replace": "^4.0.0",
+    "dotenv": "^16.0.1",
     "sirv-cli": "^2.0.0"
   }
 }
