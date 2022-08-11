@@ -1,17 +1,25 @@
 <script>
-	export let name;
+	import PhotoRow from "./components/PhotoRow.svelte"
+	let response;
+	fetch(`https://api.unsplash.com/search/collections/?page=1&query=space&client_id=${process.env.API_KEY}`).then(response => response.json()).then(parsed => response = parsed.results)
 </script>
 
 <main>
-	<h1>Photo Gallery with Svelte!</h1>
+	<h1>Photo<br>Gallery</h1>
+	{#if response}
+	<PhotoRow photos={response} title="Space"/>
+	{/if}
+	
 </main>
 
 <style>
 	main {
 		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
+		width: 100%;
+		min-height: 100vh;
+		background-color: #131313;
+		color: #fafafa;
+		overflow: hidden;
 	}
 
 	h1 {
@@ -19,11 +27,6 @@
 		text-transform: uppercase;
 		font-size: 4em;
 		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
+		padding: 3rem 0rem;
 	}
 </style>
