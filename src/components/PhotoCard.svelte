@@ -9,12 +9,17 @@
 <style>
     img {
         display: block;
-        height: 150px;
+        width: 100%;
+        max-width: 300px;
+        height: 250px;
+        object-fit: cover;
         width: max-content;
+        border-radius: 0.25rem;
     }
 
     .container {
         margin: 2rem 1rem;
         scroll-snap-align: start;
+        cursor: pointer;
     }
 </style>
