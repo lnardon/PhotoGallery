@@ -1,7 +1,9 @@
 <script>
 	import PhotoRow from "./components/PhotoRow.svelte"
 	let response;
-	fetch(`https://api.unsplash.com/search/collections/?page=1&query=space&client_id=${process.env.API_KEY}`).then(response => response.json()).then(parsed => response = parsed.results)
+	fetch(`https://api.unsplash.com/search/photos/?page=1&per_page=50&orientation=landscape&query=planets&client_id=${process.env.API_KEY}`)
+	.then(response => response.json())
+	.then(parsed => response = parsed.results)
 </script>
 
 <main>
